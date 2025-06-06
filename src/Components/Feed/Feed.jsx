@@ -12,20 +12,11 @@ import thumbnail8 from "../../assets/thumbnail8.png";
 import { data, Link } from "react-router-dom";
 import { API_KEY } from "../../data";
 import moment from "moment";
-const value_converter = (value) => {
-    if(value>=1000000) {
-        return Math.floor(value/1000000)+"M";
-    }
-    else if(value>=1000) {
-        return Math.floor(value/1000)+"K"
-    }
-    else{
-        return value;
-    }
-}
 
 
-const Feed = ({category}) => {
+
+
+
 
 // const [data,setData] = useState([]);
 
@@ -38,6 +29,7 @@ const Feed = ({category}) => {
 //   useEffect(()=>{
 //     fetchdata();
 //   },[category])
+const Feed = ({category}) => {
 
   const [data,setData] = useState([]);
   const fetechdata = async () => {
@@ -48,6 +40,19 @@ const Feed = ({category}) => {
   useEffect(()=> {
     fetechdata();
   },[category])
+
+
+  const value_converter = (value) => {
+    if(value>=1000000) {
+        return Math.floor(value/1000000)+"M";
+    }
+    else if(value>=1000) {
+        return Math.floor(value/1000)+"K"
+    }
+    else{
+        return value;
+    }
+}
 
 
 
